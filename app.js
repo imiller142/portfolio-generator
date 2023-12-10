@@ -1,7 +1,7 @@
 
 import inquirer from "inquirer";
-//const fs = require('fs');
-//const generatePage = require('./src/page-template');
+import fs from 'fs';
+import {generatePage} from './src/page-template.js'
 
 //const pageHTML = generatePage(name, github);
 
@@ -27,10 +27,10 @@ const promptUser = () => {
       },
       {
         type: 'input',
-        name: 'github (Required)',
-        message: 'Enter your GitHub username.',
-        validate: githubInput => {
-          if(githubInput) {
+        name: 'github',
+        message: 'Enter your GitHub username. (Required)',
+        validate: nameInput => {
+          if(nameInput) {
             return true;
           } else {
             console.log('Please enter your github name!');
@@ -145,5 +145,11 @@ Add a New Project
 promptUser()
 .then(promptProject)
 .then(portfolioData => {
-  console.log(portfolioData)
+    const pageHTML = generatePage(portfolioData);
+
+     fs.writeFile('./index.html', pageHTML, err => {
+       if (err) throw new Error(err);
+
+       console.log('Page created! Check out index.html in this directory to see it!');
+     });
 })

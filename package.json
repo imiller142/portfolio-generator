@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-generator",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "exports": "./app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imiller142/portfolio-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imiller142/portfolio-generator/issues"
+  },
+  "homepage": "https://github.com/imiller142/portfolio-generator#readme",
+  "dependencies": {
+    "inquirer": "^9.2.12"
+  }
+}
